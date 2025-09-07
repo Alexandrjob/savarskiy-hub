@@ -10,21 +10,6 @@ import { experiences, Experience } from '../data/experience';
 
 const MotionPaper = motion(Paper);
 
-interface ExperienceDetailSection {
-  title?: string;
-  content: string[];
-}
-
-interface Experience {
-  company: string;
-  position: string;
-  dates: string;
-  shortDescription: string;
-  details: ExperienceDetailSection[];
-  stack?: string[];
-  isKatrena?: boolean;
-}
-
 interface ExperienceItemProps {
   experience: Experience;
   onClick: () => void;

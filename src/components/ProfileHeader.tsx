@@ -5,6 +5,7 @@ import { motion, useInView, useMotionValue, useTransform, animate } from 'framer
 import { Box, Typography, Paper, Grid, IconButton, Snackbar } from '@mui/material';
 import { LinkedIn, GitHub } from '@mui/icons-material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { profileData } from '../data/profile';
 import CTAButton from './CTAButton';
 
 interface StatItemProps {
@@ -200,7 +201,5 @@ const ProfileHeader: React.FC = () => {
     </Box>
   );
 };
-
-export default ProfileHeader;
 
 export default ProfileHeader;
