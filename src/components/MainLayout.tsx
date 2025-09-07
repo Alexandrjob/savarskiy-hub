@@ -12,7 +12,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     <MousePositionProvider>
       <Box sx={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', backgroundColor: '#FDF6E3' }}>
         <InteractiveHeroBackground />
-        <Box component="main" flexGrow={1} p={{ xs: 2, lg: 4 }} sx={{ position: 'relative', zIndex: 1, backgroundColor: 'transparent' }}>
+        <Box component="main" flexGrow={1} sx={{ position: 'relative', zIndex: 1, backgroundColor: 'transparent' }}>
           {children}
         </Box>
       </Box>

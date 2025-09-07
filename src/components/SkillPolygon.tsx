@@ -18,14 +18,34 @@ const skills: Skill[] = [
   { name: 'Sys Design', level: 65 },
 ];
 
-const SkillPolygon: React.FC<{ width?: number }> = ({ width = 320 }) => {
+const SkillPolygon: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [size, setSize] = useState(320);
 
-  const size = width;
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(entries => {
+      if (entries[0]) {
+        const { width } = entries[0].contentRect;
+        setSize(width);
+      }
+    });
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        resizeObserver.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   const center = size / 2;
   const padding = size * 0.08;
-  const baseRadius = center - padding * 1.2; // Base radius
+  const baseRadius = center - padding * 1.2;
   const labelRadius = center - padding * 0.5;
-  const labelFontSize = size * 0.055;
+  const labelFontSize = Math.max(10, size * 0.055);
 
   const animatedRadius = useMotionValue(baseRadius);
 
@@ -36,18 +56,16 @@ const SkillPolygon: React.FC<{ width?: number }> = ({ width = 320 }) => {
       repeat: Infinity,
       repeatDelay: 1,
     });
-    return controls.stop;
+    return () => controls.stop();
   }, [baseRadius, animatedRadius]);
 
-  // Helper function to get coordinates for a given radius
   const getCoordinates = (currentRadius: number, percent: number, i: number, total: number) => {
     const angle = ((Math.PI * 2) / total) * i - Math.PI / 2;
     const x = center + currentRadius * Math.cos(angle) * (percent / 100);
     const y = center + currentRadius * Math.sin(angle) * (percent / 100);
-    return { x, y }; // Return object for easier access
+    return { x, y };
   };
 
-  // Create MotionValues for polygon points using useTransform
   const polygonPoints = useTransform(animatedRadius, (currentAnimatedRadius) => {
     return skills
       .map((skill, i) => {
@@ -66,11 +84,9 @@ const SkillPolygon: React.FC<{ width?: number }> = ({ width = 320 }) => {
       .join(' ');
   });
 
-  // Initialize line MotionValues once using useRef
   const lineX2MotionValues = useRef(skills.map(() => useMotionValue(0)));
   const lineY2MotionValues = useRef(skills.map(() => useMotionValue(0)));
 
-  // Update line MotionValues using useTransform
   useTransform(animatedRadius, (currentAnimatedRadius) => {
     skills.forEach((_, i) => {
       const { x, y } = getCoordinates(currentAnimatedRadius, 100, i, skills.length);
@@ -81,8 +97,9 @@ const SkillPolygon: React.FC<{ width?: number }> = ({ width = 320 }) => {
 
   return (
     <Box
+      ref={containerRef}
       sx={{
-        width: size,
+        width: '100%',
         maxWidth: '100%',
         aspectRatio: '1 / 1',
         position: 'relative',

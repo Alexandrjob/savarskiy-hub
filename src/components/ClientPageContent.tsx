@@ -10,7 +10,7 @@ import Footer from './Footer';
 
 const ClientPageContent: React.FC = () => {
   return (
-    <Box sx={{ p: { xs: 2, md: 4, lg: 8 } }}>
+    <Box sx={{ p: 2.5 }}>
       <Grid container spacing={4} direction={{ xs: 'column', md: 'row' }} sx={{ marginBottom: 4 }}>
         <Grid item xs={12} md={8} sx={{ height: '100%' }}>
           <Typography variant="h1" sx={{ fontSize: '40px', fontWeight: '800', textAlign: 'left', marginBottom: 2 }}>Go & C# Developer</Typography>

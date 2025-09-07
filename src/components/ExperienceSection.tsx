@@ -6,6 +6,8 @@ import { Box, Typography, Paper } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code'; // Import CodeIcon
 import ExperienceDetailModal from './ExperienceDetailModal';
 
+import { experiences, Experience } from '../data/experience';
+
 const MotionPaper = motion(Paper);
 
 interface ExperienceDetailSection {

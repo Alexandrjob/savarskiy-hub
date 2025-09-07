@@ -132,7 +132,8 @@ const ProfileHeader: React.FC = () => {
               sx={{
                 flexGrow: 1,
                 textAlign: { xs: 'center', md: 'left' },
-                marginLeft: 4,
+                marginLeft: { xs: 0, md: 4 },
+                marginTop: { xs: 4, md: 0 },
                 position: 'relative',
                 minHeight: { xs: 400, md: 420 },
               }}
@@ -182,15 +183,15 @@ const ProfileHeader: React.FC = () => {
                 sx={{
                   width: '100%',
                   display: 'flex',
-                  flexDirection: 'row',
+                  flexDirection: { xs: 'column', sm: 'row' },
                   justifyContent: 'flex-end',
-                  alignItems: 'flex-end',
+                  alignItems: 'center',
                   gap: 2,
                   marginTop: 4,
                 }}
               >
-                <CTAButton label="Написать в Телеграм" href="https://t.me/AlexandrHi" variant="primary" />
-                <CTAButton label="Скачать резюме" href="/Александр Саварский Go C#.pdf" variant="secondary" />
+                <CTAButton label="Написать в Телеграм" href={profileData.cta.telegram} variant="primary" />
+                <CTAButton label="Скачать резюме" href={profileData.cta.resumeUrl} variant="secondary" />
               </Box>
             </Box>
           </Grid>
@@ -198,6 +199,9 @@ const ProfileHeader: React.FC = () => {
       </Box>
     </Box>
   );
+};
+
+export default ProfileHeader;
 };
 
 export default ProfileHeader;

@@ -31,8 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         background: '#FFFFFF',
         boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)',
         minHeight: '320px',
-        flex: '1 1 300px',
-        maxWidth: 'calc(33.33% - 16px)',
+        width: { xs: '100%', sm: 'calc(50% - 1rem)', lg: 'calc(33.333% - 1rem)' },
       }}
     >
       <Box>
