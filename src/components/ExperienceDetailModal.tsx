@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Modal, Box, Typography, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import WorkIcon from '@mui/icons-material/Work';
-import { motion } from 'framer-motion';
 
 interface ExperienceDetailSection {
   title?: string;
@@ -77,18 +77,19 @@ const ExperienceDetailModal: React.FC<ExperienceDetailModalProps> = ({
       aria-labelledby="experience-modal-title"
       aria-describedby="experience-modal-description"
     >
-      <motion.div
+      <Box
+        component={motion.div}
         variants={modalVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
-        style={{
+        sx={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '50%',
-          padding: 40,
+          width: { xs: '90%', md: '50%' },
+          p: { xs: 3, md: 5 },
           border: '4px solid black',
           boxShadow: '8px 8px 0px 0px rgba(0,0,0,1)',
           maxHeight: '90vh',
@@ -176,7 +177,7 @@ const ExperienceDetailModal: React.FC<ExperienceDetailModalProps> = ({
             </React.Fragment>
           ))}
         </Box>
-      </motion.div>
+      </Box>
     </Modal>
   );
 };

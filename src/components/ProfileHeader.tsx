@@ -86,11 +86,12 @@ const ProfileHeader: React.FC = () => {
     <Box
       sx={{
         position: 'relative',
-        padding: { xs: 4, md: 4 },
+        padding: { xs: 2, md: 4 },
         backgroundColor: '#FF9933',
         border: '4px solid black',
         boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)',
         height: '100%',
+        width: '100%', // Prevent overflow
       }}
     >
       <Snackbar
@@ -141,7 +142,7 @@ const ProfileHeader: React.FC = () => {
             >
               <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', height: '100%' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
-                  <Typography variant="h3" sx={{ fontSize: '40px', fontWeight: 'bold' }}>Александр Саварский</Typography>
+                  <Typography variant="h3" sx={{ fontSize: '40px', fontWeight: 'bold' }}>{profileData.name}</Typography>
                   <Box
                     onClick={handleCopyEmail}
                     sx={{
