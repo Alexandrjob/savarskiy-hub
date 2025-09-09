@@ -55,7 +55,7 @@ Thumbs.db
 # IDEs / Editors
 minimalism/.idea/
 neobrutalism/.idea/
-.idea/ # General .idea folder
+.idea
 .vscode/
 *.suo
 *.user
