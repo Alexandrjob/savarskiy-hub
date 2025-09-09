@@ -1,0 +1,55 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+minimalism/node_modules
+neobrutalism/node_modules
+minimalism/*lock.json
+neobrutalism/*lock.json
+minimalism/.pnp
+neobrutalism/.pnp
+minimalism/.pnp.js
+neobrutalism/.pnp.js
+
+# testing
+minimalism/coverage
+neobrutalism/coverage
+
+# next.js build output
+minimalism/.next/
+neobrutalism/.next/
+minimalism/out/
+neobrutalism/out/
+
+# production
+minimalism/build
+neobrutalism/build
+
+# misc
+.DS_Store
+*.pem
+minimalism/.idea/
+neobrutalism/.idea/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+minimalism/.env*.local
+neobrutalism/.env*.local
+minimalism/.env
+neobrutalism/.env
+
+# vercel
+minimalism/.vercel
+neobrutalism/.vercel
+
+# typescript
+minimalism/*.tsbuildinfo
+neobrutalism/*.tsbuildinfo
+
+minimalism/.idea
+neobrutalism/.idea
+.idea
