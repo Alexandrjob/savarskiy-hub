@@ -2,9 +2,9 @@ import { Section } from "./Section";
 import { skills } from "@/data/resume-data";
 import { Typography, Box } from "@mui/material";
 
-export const SkillsSection = ({ title, icon, categories }: typeof skills) => {
+export const SkillsSection = ({ title, categories }: typeof skills) => {
   return (
-    <Section title={title} icon={icon}>
+    <Section title={title}>
       <Box sx={{ maxWidth: '800px' }}>
         {categories.map((category, index) => (
           <Box key={index} sx={{ mb: 2 }}> {/* Уменьшаем mb с 4 до 2 */}

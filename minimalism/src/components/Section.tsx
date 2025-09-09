@@ -4,7 +4,6 @@ import { Box, Typography } from "@mui/material";
 interface SectionProps {
   title: React.ReactNode;
   children: React.ReactNode;
-  icon?: React.ReactNode;
   leftContent?: React.ReactNode;
 }
 

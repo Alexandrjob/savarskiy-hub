@@ -18,9 +18,9 @@ import { Section } from "./Section";
 import { experience } from "@/data/resume-data";
 import { Typography, Link, Box } from "@mui/material";
 
-export const ExperienceSection = ({ title, icon, items }: typeof experience) => {
+export const ExperienceSection = ({ title, items }: typeof experience) => {
   return (
-    <Section title={title} icon={icon}>
+    <Section title={title}>
       <Box sx={{  }}>
         {items.map((item, index) => (
           <Box key={index} sx={{ mb: 2 }}>

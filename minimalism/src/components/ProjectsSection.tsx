@@ -2,9 +2,9 @@ import { Section } from "./Section";
 import { projects } from "@/data/resume-data";
 import { Typography, Link, Box, Chip } from "@mui/material";
 
-export const ProjectsSection = ({ title, icon, items }: typeof projects) => {
+export const ProjectsSection = ({ title, items }: typeof projects) => {
   return (
-    <Section title={title} icon={icon}>
+    <Section title={title}>
       <Box >
         {items.map((item, index) => (
           <Box key={index} sx={{ mb: 2 }}> {/* Уменьшаем mb с 4 до 2 */}
@@ -19,7 +19,7 @@ export const ProjectsSection = ({ title, icon, items }: typeof projects) => {
             {item.stack && (
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', mt: 1.5 }}>
                 {item.stack.map(tech => (
-                  <Chip key={tech} label={tech} variant="text" sx={{ backgroundColor: 'transparent' }} />
+                  <Chip key={tech} label={tech} variant="outlined" sx={{ backgroundColor: 'transparent' }} />
                 ))}
               </Box>
             )}
